@@ -9,4 +9,10 @@ In this repository you can find the classification pipeline used to identify beh
 ### Methodology:
 Each neural event train (as desribed in the paper) was convolved with a Gaussian function (σ  = 12.5ms, window width of 2σ) to obtain a time series of instantaneous firing rates.  The Kraskov Mutual Information Score (MIS) was then calculated independently between each neuron and each behavior (sklearn.feature_selection.mutual_info_classif).  Neurons were classified as encoding a specific behavior during a session (i.e. 5 trials) if they met the following criteria: (1) calcium transient events were present in over 33% of the behavioral occurrences, (2) the cell achieved a MIS greater than chance. Chance-level mutual information for a cell was determined by performing 2,000 shuffles of a cells event train and calculating the mutual information between each shuffled event train. The cell was considered as encoding a specific behavior cell if its MIS exceeded the 95th percentile of the values for the shuffled data.
 
-Included in this repository is the classification pipeline jupyter notebook. 
+### Behaviors considered:
+1. MOVE FORWARD
+2. PUSH
+3. RESISTANCE
+4. RETREAT
+5. STILLNESS
+6. WITHDRAWAL
